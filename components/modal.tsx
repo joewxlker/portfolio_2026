@@ -29,7 +29,7 @@ export const Modal = ({ isOpen, onClose, children, ariaLabel }: { isOpen: boolea
             className='fixed inset-0 z-50 flex items-center justify-center bg-[color-mix(in_oklab,var(--color-shadow)_60%,transparent)] backdrop-blur-sm'
             onMouseDown={onClose}>
                 <div
-                    className='w-225 max-w-[95vw] max-h-[95vh] overflow-hidden rounded-lg border border-[color-mix(in_oklab,var(--color-secondary)_20%,transparent)] bg-modal'
+                    className='w-225 max-w-[95vw] max-h-[95vh] overflow-hidden rounded-lg border border-[color-mix(in_oklab,var(--color-trim)_20%,transparent)] bg-modal'
                     onMouseDown={(event) => event.stopPropagation()}>
                         {children}
                 </div>

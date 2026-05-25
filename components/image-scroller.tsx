@@ -25,7 +25,7 @@ if (gridComponents.List) {
 }
 
 const Item = ({ index, onClick }: { index: number, onClick: (index: number) => void }) => (
-  <button onClick={() => onClick(index)} className="flex flex-1 aspect-square relative cursor-pointer hover:border-accent-three hover:rounded-md overflow-clip hover:border-2">
+  <button aria-label="open image detail modal" onClick={() => onClick(index)} className="flex flex-1 aspect-square relative cursor-pointer hover:border-primary hover:rounded-md overflow-clip hover:border-3">
     <Image 
       className="h-full w-full z-10" 
       src={imageUrl(index, 500, 500)} 
@@ -33,13 +33,13 @@ const Item = ({ index, onClick }: { index: number, onClick: (index: number) => v
       width={200}  
       quality={60}
       alt="" />
-    <div className="bg-primary/20 animate-pulse absolute inset-0" />
+    <div className="bg-primary-text/20 animate-pulse absolute inset-0" />
   </button>
 )
 
 const Loader = () => (
-  <button disabled className="flex flex-1 aspect-square relative cursor-pointer hover:border-accent-three hover:rounded-md overflow-clip hover:border-2">
-    <div className="bg-primary/20 animate-pulse absolute inset-0" />
+  <button disabled className="flex flex-1 aspect-square relative overflow-clip">
+    <div className="bg-primary-text/20 animate-pulse absolute inset-0" />
   </button>
 )
 

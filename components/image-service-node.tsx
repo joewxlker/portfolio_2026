@@ -11,7 +11,7 @@ const Port = ({ port, id, route, source, target, index }: PortData & { index: nu
 
     return (
         <>
-            <div style={{ height: 35 }} ref={ref} className="text-secondary/80 flex flex-row items-center justify-between gap-3 border-t border-t-secondary/20 py-1 w-full px-2 text-sm">
+            <div style={{ height: 35 }} ref={ref} className="text-secondary-text/80 flex flex-row items-center justify-between gap-3 border-t border-t-trim/20 py-1 w-full px-2 text-sm">
                 : {port} <span>{route}</span>
                 <div className="h-2 w-2 rounded-full bg-green-400 border-2 border-green-600" />
             </div>
@@ -27,7 +27,7 @@ export const ServiceNode = ({ data, ...rest }: ServiceNode) => {
     useEffect(() => update(rest.id), [rest.id, update]);
 
     return (
-        <div className="dark:bg-mist-800 bg-mist-50 text-secondary w-50 flex flex-col items-center rounded-sm">
+        <div className="bg-modal text-secondary-text w-50 flex flex-col items-center rounded-sm">
             <div style={{ height: 45 }} className="w-full flex items-center justify-center text-md">
                 {data.label}
             </div>

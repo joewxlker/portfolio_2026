@@ -1,82 +1,97 @@
 @import "tailwindcss";
 
 :root {
-  --background: var(--color-mist-200);
-  --modal: var(--color-mist-50);
+  --background: var(--color-mist-50);
+  --modal: var(--color-mist-200);
   --shadow: var(--color-mist-400);
   --foreground: var(--color-mist-900);
-  --primary: var(--color-mist-800);
-  --secondary: var(--color-mist-700);
-  --accent-one: var(--color-black);
-  --accent-two: var(--color-lime-800);
-  --accent-three: var(--color-lime-600);
+  --primary-text: var(--color-mist-900);
+  --secondary-text: var(--color-mist-700);
+  --trim: var(--secondary-text);
+
+  --accent: var(--color-mist-900);
+  --accent-dark: var(--color-amber-600);
+
+  --pending: var(--color-mist-700);
+  --pending-shadow: var(--color-mist-700);
+
+  --error: var(--color-red-600);
+  --error-shadow: var(--color-red-600);
+  
+  --success: var(--color-pink-600);
+  --success-shadow: var(--color-pink-600);
+  
+  --primary: var(--color-lime-600);
+  --primary-shadow: var(--color-lime-600);
+
+  --primary-dark: var(--color-lime-800);
+  --primary-dark-shadow: var(--color-lime-800);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-mist-800);
+    --modal: var(--color-mist-900);
+    --shadow: var(--color-mist-950);
+    --foreground: var(--color-mist-300);
+    --primary-text: var(--color-mist-300);
+    --secondary-text: var(--color-mist-400);
+    --trim: var(--secondary-text);
+
+    --accent: var(--color-mist-100);
+    --accent-dark: var(--color-amber-400);
+
+    --pending: var(--color-mist-900);
+    --pending-shadow: var(--color-mist-900);
+
+    --error: var(--color-red-400);
+    --error-shadow: var(--color-red-400);
+    
+    --success: var(--color-pink-400);
+    --success-shadow: var(--color-pink-400);
+
+    --primary: var(--color-lime-400);
+    --primary-shadow: var(--color-lime-400);
+
+    --primary-dark: var(--color-lime-600);
+    --primary-dark-shadow: var(--color-lime-600);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
   --font-fancy: var(--font-fancy);
 
   --color-shadow: var(--shadow);
   --color-modal: var(--modal);
+  --color-primary-text: var(--primary-text);
+  --color-secondary-text: var(--secondary-text);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-trim: var(--secondary-text);
+
+  --color-success: var(--success);
+  --color-success-shadow: var(--success-shadow);
+
+  --color-error: var(--error);
+  --color-error-shadow: var(--error-shadow);
+  
+  --color-pending: var(--pending);
+  --color-pending-shadow: var(--pending-shadow);
+  
   --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent-one: var(--accent-one);
-  --color-accent-two: var(--accent-two);
-  --color-accent-three: var(--accent-three);
+  --color-primary-shadow: var(--primary-shadow);
+  
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-dark-shadow: var(--primary-dark-shadow);
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-
-    --background: var(--color-mist-900);
-    --modal: var(--color-mist-900);
-    --shadow: var(--color-mist-950);
-    --foreground: var(--color-mist-200);
-    --primary: var(--color-stone-200);
-    --secondary: var(--color-stone-300);
-    --accent-one: var(--color-white);
-    --accent-two: var(--color-green-600);
-    --accent-three: var(--color-lime-600);
-  }
-}
-
-/* .static {
-  background-image: url("../public/static.png");
-  position: absolute;
-  inset: 0;
-  z-index: 500;
-  pointer-events: none;
-  filter: opacity(7%);
-  mix-blend-mode: lighten;
-} */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-/* For Firefox */
-.scroll-container {
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-three) color-mix(in oklab, var(--secondary) 20%, transparent);
-}
-
-.scroll-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.scroll-container::-webkit-scrollbar-track {
-  background: color-mix(in oklab, var(--secondary) 20%, transparent);
-  border-radius: 10px;
-}
-
-.scroll-container::-webkit-scrollbar-thumb {
-  background-color: var(--accent-three);
-  border-radius: 10px;
 }
 
 .image-loader {

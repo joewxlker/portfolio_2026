@@ -8,7 +8,7 @@ import {
 export const CustomSmoothStep = (props: EdgeProps<{ direction: "push" | "pull" }>) => {
     const [edgePath, labelX, labelY] = getSmoothStepPath(props);
 
-    const stroke = props.data?.direction === "push" ? "var(--color-secondary)" : "var(--color-orange-200)";
+    const stroke = props.data?.direction === "push" ? "var(--color-secondary-text)" : "var(--color-violet-500)";
 
     return (
         <>
@@ -24,7 +24,7 @@ export const CustomSmoothStep = (props: EdgeProps<{ direction: "push" | "pull" }
                         transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`,
                     }}
                 >
-                    <p className="text-xs text-secondary">{props.label}</p>
+                    <p className="text-xs text-secondary-text">{props.label}</p>
                 </div>
             </EdgeLabelRenderer>
         </>
