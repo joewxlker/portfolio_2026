@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 const styles = {
-  link: "hover:brightness-125 font-mono font-light text-white"
+  link: "hover:brightness-125 text-white font-sans"
 }
 
 export default function RootLayout({
@@ -37,7 +37,7 @@ export default function RootLayout({
         <header className="lg:px-5 px-2 w-full max-w-400 absolute translate-x-[-50%] left-[50%] z-50 py-3">
           <div className="overflow-clip relative">
             <div className="w-full h-full flex-row flex items-center justify-between xl:px-5 px-2 py-2">
-              <Link href="/" className="xl:text-xl lg:text-lg sm:text-md text-sm text-white relative flex flex-row gap-2 items-center font-mono justify-center group hover:brightness-125">
+              <Link href="/" className="xl:text-xl lg:text-lg sm:text-md text-sm text-white relative flex flex-row gap-2 font-sans items-center justify-center group hover:brightness-125">
                 <Image src="/daisy.png" alt="" height={25} width={25} />
                 Portfolio 2026
               </Link>
