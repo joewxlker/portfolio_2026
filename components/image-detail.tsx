@@ -5,6 +5,7 @@ import { imageUrl, Metadata } from "@/lib/image-api";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "./external-link";
+import { LINKS } from "@/app/globals";
 
 const imageHeight = 1000;
 const imageWidth = 2000;
@@ -66,7 +67,7 @@ export const ImageDetail = ({ imageId }: { imageId: number }) => {
                 <Image className="image-loader" src={imageUrl(imageId, imageHeight, imageWidth)} alt="" height={imageHeight} width={imageWidth} />
             </div>
             <ImageMetadata imageId={imageId}/>
-            <ExternalLink href="" className="text-sm! ml-auto!">
+            <ExternalLink href={LINKS.metrics} className="text-sm! ml-auto!">
                 View All Metrics
             </ExternalLink>
         </div>

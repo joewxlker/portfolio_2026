@@ -19,3 +19,12 @@ export const STYLES = {
   success_button: "mr-1 cursor-pointer relative hover:brightness-125 border md:px-6 md:py-2 px-3 py-2 text-white text-center lg:text-lg font-semibold font-sans cursor-default bg-success/70 dark:bg-success/30 border-success-shadow pointer-events-none shadow-[5px_5px_var(--color-success-shadow)]",
   error_button: "mr-1 cursor-pointer relative hover:brightness-125 border md:px-6 md:py-2 px-3 py-2 text-white text-center lg:text-lg font-semibold font-sans cursor-default bg-error/70 dark:bg-error/30 border-error-shadow pointer-events-none shadow-[5px_5px_var(--color-error-shadow)] shake-onmount",
 };
+
+export const LINKS = {
+  metrics: process.env.NEXT_PUBLIC_METRICS_URL ?? "",
+  image_api_source_code: "https://github.com/joewxlker/image_api",
+  ansible_source_code: "",
+  linkedin_profile: "https://www.linkedin.com/in/joe-walker-89312a22a/",
+  whatsapp: "https://wa.me/+995598081800",
+  github_profile: "https://github.com/joewxlker",
+}
