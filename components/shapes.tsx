@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Geometry
 const FULL_ROTATION = Math.PI * 2;
@@ -191,6 +191,38 @@ export const Shapes = () => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const shapes = useRef<ReturnType<typeof newShape>[]>([]);
+    
+    const [{ width: containerWidth, height: containerHeight }, setContainerSize] = useState({
+        width: 0,
+        height: 0,
+    });
+
+    useEffect(() => {
+        const element = containerRef.current;
+        if (!element) return;
+
+        const observer = new ResizeObserver(([entry]) => {
+            if (canvasRef.current) {
+                setContainerSize({
+                    width: entry.contentRect.width,
+                    height: entry.contentRect.height,
+                });
+            }
+        });
+
+        observer.observe(element);
+
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!containerRef.current) return;
+
+        const width = containerRef.current.clientWidth;
+        const height = containerRef.current.clientHeight;
+
+        setContainerSize({ width, height });
+    }, [containerWidth, containerHeight]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -202,34 +234,55 @@ export const Shapes = () => {
         const dpr =
             window.devicePixelRatio || DEFAULT_DEVICE_PIXEL_RATIO;
 
-        if (!containerRef.current) return;
+        canvas.style.width = `${containerWidth}px`;
+        canvas.style.height = `${containerHeight}px`;
 
-        const width = containerRef.current.clientWidth;
-        const height = containerRef.current.clientHeight;
+        canvas.width = Math.round(containerWidth * dpr);
+        canvas.height = Math.round(containerHeight * dpr);
 
-        canvas.style.width = `${width}px`;
-        canvas.style.height = `${height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }, [containerWidth, containerHeight]);
 
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-    }, []);
+    const timeout = useRef<number | null>(null);
+    const spawnTimeouts = useRef<number[]>([]);
+
+    const clearTimeouts = () => {
+        for (const timeout of spawnTimeouts.current) {
+            if (timeout !== null) {
+                window.clearTimeout(timeout);
+            };
+        }
+
+        if (timeout.current !== null) {
+            window.clearTimeout(timeout.current);
+        };
+    }
 
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        for (let i = 0; i < INITIAL_SHAPE_COUNT; i++) {
-            window.setTimeout(() => {
-                shapes.current.push(
-                    newShape(
-                        canvas.width,
-                        MIN_SHAPE_SIZE,
-                        MAX_SHAPE_SIZE
-                    )
-                );
-            }, SHAPE_SPAWN_INTERVAL_MS * i);
-        }
-    }, []);
+        shapes.current = [];
+        clearTimeouts();
+        
+        timeout.current = window.setTimeout(() => {
+            for (let i = 0; i < INITIAL_SHAPE_COUNT; i++) {
+                window.setTimeout(() => {
+                    shapes.current.push(
+                        newShape(
+                            containerWidth,
+                            MIN_SHAPE_SIZE,
+                            MAX_SHAPE_SIZE
+                        )
+                    );
+                }, SHAPE_SPAWN_INTERVAL_MS * i);
+            }
+
+            timeout.current = null;
+        }, 200);
+
+        return () => clearTimeouts();
+    }, [containerWidth]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -241,24 +294,24 @@ export const Shapes = () => {
         let frameId = -1;
 
         const animate = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, containerWidth, containerHeight);
 
-            let i = 0;
+            for (let i = 0; i < shapes.current.length; i++) {
+                const shape = shapes.current[i];
 
-            for (const shape of shapes.current) {
                 shape.y += FALL_SPEED;
                 shape.rotation =
                     (shape.rotation + ROTATION_SPEED) % FULL_ROTATION;
 
-                if (shape.y > canvas.height + shape.size) {
+                if (shape.y > containerHeight + shape.size) {
                     shapes.current[i] = newShape(
-                        canvas.width,
+                        containerWidth,
                         MIN_SHAPE_SIZE,
                         MAX_SHAPE_SIZE
                     );
                 }
 
-                drawShape(ctx, shape);
+                drawShape(ctx, shapes.current[i]);
                 i++;
             }
 
@@ -268,7 +321,7 @@ export const Shapes = () => {
         frameId = requestAnimationFrame(animate);
 
         return () => cancelAnimationFrame(frameId);
-    }, []);
+    }, [containerWidth, containerHeight]);
 
     return (
         <div ref={containerRef} className="absolute inset-0 z-10">

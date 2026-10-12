@@ -1,5 +1,5 @@
 export const STYLES = {
-  h1: "lg:text-7xl md:text-6xl text-5xl -translate-y-1 font-fancy font-black text-white",
+  h1: "lg:text-7xl md:text-6xl text-5xl -translate-y-1 font-sans font-black text-white",
   h2: "lg:text-3xl md:text-2xl text-2xl font-fancy text-primary text-center py-2",
   h3: "lg:text-3xl lg:text-3xl text-2xl text-white font-sans text-left",
   h4: "lg:text-2xl lg:text-2xl text-xl font-medium text-primary-text font-sans truncate",

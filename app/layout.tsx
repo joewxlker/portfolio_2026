@@ -34,14 +34,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistMono.variable} ${fancy.variable} antialiased`}>
-        <header className="lg:px-5 px-2 w-full max-w-500 h-14 absolute translate-x-[-50%] left-[50%] z-100 py-1 bg-trim">
+        <header className="lg:px-5 px-2 w-full max-w-500 h-15 absolute translate-x-[-50%] left-[50%] z-100 py-1 bg-trim">
           <div className="z-10 overflow-clip relative">
             <div className="w-full h-full flex-row flex items-center justify-between xl:px-5 px-2 py-2">
               <Link href="/" className="xl:text-2xl lg:text-xl sm:text-md font-sans font-bold text-sm text-white relative flex flex-row gap-2 items-center justify-center group hover:brightness-125">
                 <Image src="/daisy.png" alt="" height={25} width={25} />
                 JOEWXLKER
               </Link>
-              <nav className="flex-row gap-5 md:flex hidden text-lg">
+              <nav className="flex-row gap-5 md:flex hidden text-lg items-center">
                 <Link href="/#about" className={styles.link}>
                   About
                 </Link>
@@ -50,6 +50,9 @@ export default function RootLayout({
                 </Link>
                 <Link href="/#contact" className={styles.link}>
                   Contact
+                </Link>
+                <Link href="#contact" className={styles.link + " px-4 py-0.5 rounded-full bg-primary text-trim font-sans font-semibold w-fit"}>
+                  Let&apos;s Talk
                 </Link>
               </nav>
               <button aria-label="open navigation menu" className="md:hidden flex">
@@ -60,13 +63,15 @@ export default function RootLayout({
             </div>
           </div>
         </header>
-        <div className="z-40 lg:px-5 px-2 w-full max-w-500 absolute translate-x-[-50%] left-[50%] bg-trim backdrop-blur-xs h-15 opacity-30" />
         <div className="z-40 lg:px-5 px-2 w-full max-w-500 absolute translate-x-[-50%] left-[50%] bg-trim backdrop-blur-xs h-16 opacity-30" />
+        <div className="z-40 lg:px-5 px-2 w-full max-w-500 absolute translate-x-[-50%] left-[50%] bg-trim backdrop-blur-xs h-17 opacity-30" />
         <div className="w-full max-w-500 m-auto min-h-screen">
           {children}
         </div>
-        <footer className="bg-modal h-fit w-full max-w-500 m-auto px-5 pb-10 pt-20">
-          <div className={STYLES.section + " pt-5!  border-t-secondary-text/50 border-t"}>
+        <footer className="h-fit w-full max-w-500 m-auto pt-20">
+          <div className="z-40 lg:px-5 px-2 w-full bg-trim h-2 opacity-30" />
+          <div className="z-40 lg:px-5 px-2 w-full bg-trim h-2 opacity-60" />
+          <div className={STYLES.section + " pt-5! bg-trim px-5 pb-10"}>
             <h2 className={STYLES.h2 + " text-center! text-secondary-text"}>
               Joseph Walker
             </h2> 

@@ -29,7 +29,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--color-mist-800);
-    --modal: var(--color-mist-900);
+    --modal: var(--color-mist-950);
     --shadow: var(--color-mist-950);
     --foreground: var(--color-mist-300);
     --primary-text: var(--color-stone-200);
@@ -142,4 +142,26 @@ footer {
   );
   z-index: 10;
   pointer-events: none;
+}
+
+.grid-pattern {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      var(--color-primary) 0px,
+      var(--color-primary) 5px,
+      transparent 5px,
+      transparent 8px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      var(--primary-dark) 0px,
+      var(--primary-dark) 5px,
+      transparent 5px,
+      transparent 8px
+    ),
+    linear-gradient(
+      var(--secondary-text),
+      var(--secondary-text)
+    );
 }
