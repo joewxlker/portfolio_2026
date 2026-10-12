@@ -67,7 +67,7 @@ export const ContactForm = () => {
                 required 
                 aria-label="your email"
                 disabled={isPending} 
-                className="bg-modal/50 border border-trim/20 text-secondary-text p-2 lg:text-lg rounded-md" 
+                className="bg-modal/50 border border-trim/50 text-secondary-text p-3 lg:text-lg rounded-md" 
                 placeholder="your@email.com" 
                 type="email"
                 name="from" />
@@ -76,7 +76,7 @@ export const ContactForm = () => {
                 defaultValue={lastMessage}
                 disabled={isPending} 
                 aria-label="your message"
-                className="bg-modal/50 border border-trim/20 text-secondary-text p-2 lg:text-lg min-h-40 rounded-md" 
+                className="bg-modal/50 border border-trim/50 text-secondary-text p-3 lg:text-lg min-h-40 rounded-md" 
                 placeholder="Tell me about your project, timeline, or goals" 
                 name="message" />
             

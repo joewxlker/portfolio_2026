@@ -33,13 +33,13 @@ const Item = ({ index, onClick }: { index: number, onClick: (index: number) => v
       width={200}  
       quality={60}
       alt="" />
-    <div className="bg-primary-text/20 animate-pulse absolute inset-0" />
+    <div className="image-loader absolute inset-0" />
   </button>
 )
 
 const Loader = () => (
   <button disabled className="flex flex-1 aspect-square relative overflow-clip">
-    <div className="bg-primary-text/20 animate-pulse absolute inset-0" />
+    <div className="image-loader absolute inset-0" />
   </button>
 )
 

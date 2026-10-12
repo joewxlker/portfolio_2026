@@ -17,7 +17,7 @@ const tableKeys = [
     },
     {
         label: "url",
-        value: (m: Metadata) => <Link className="underline" href={m.url}>{m.url}</Link>,
+        value: (m: Metadata) => <Link target="_blank" className="underline" href={m.url}>{m.url}</Link>,
     },
     {
         label: "is_cached",
@@ -33,7 +33,7 @@ const Table = ({ metadata: m }: { metadata: Metadata | undefined }) => (
                 <tr key={label} className="border-y border-y-trim/20">
                     <th className="px-2 w-32 text-left border-r text-primary-text border-r-trim/20">{label}</th>
                     {m && <td className={`${computedStyle && computedStyle(m)} px-2`}>{value(m)}</td>}
-                    {!m && <td className="px-2 relative"><div className="bg-primary-text/50 rounded-full animate-pulse absolute inset-2" /><p className="hidden">spacing</p></td>}
+                    {!m && <td className="px-2 relative"><div className="bg-secondary-text/20 rounded-full animate-pulse absolute inset-2" /><p className="hidden">spacing</p></td>}
                 </tr>
             ))}
         </tbody>
@@ -63,7 +63,7 @@ const ImageMetadata = ({ imageId }: { imageId: number }) => {
 export const ImageDetail = ({ imageId }: { imageId: number }) => {
     return (
         <div className="h-full w-full flex flex-col gap-3">
-            <div className="max-h-[60vh] overflow-y-auto">
+            <div className="max-h-[60vh] overflow-y-auto w-full">
                 <Image className="image-loader" src={imageUrl(imageId, imageHeight, imageWidth)} alt="" height={imageHeight} width={imageWidth} />
             </div>
             <ImageMetadata imageId={imageId}/>
