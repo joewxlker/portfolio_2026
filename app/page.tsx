@@ -134,10 +134,9 @@ export default function Home() {
       <section id="projects" className={STYLES.section}>
         <SectionHeader title="Project Showcase" />
         <div className={STYLES.sectionBody}>
-          <h3 className={STYLES.h3 + " lg:pb-5"}>Rust Image Generator</h3>
           <div className={STYLES.subSection}>
             <article className={STYLES.article + " flex-[0.7]"}>
-              <h4 className={STYLES.h4}>Overview</h4>
+              <h3 className={STYLES.h3 + " lg:pb-5"}>Overview</h3>
               <p className={STYLES.p}>
                 A full-stack image generation system built for low-latency rendering, scalable delivery, and 
                 real-time observability. The platform combines performant backend processing, responsive 
@@ -160,7 +159,7 @@ export default function Home() {
           </div>
           <div className={STYLES.subSection + " flex-col!"}>
             <article className={STYLES.article}>
-              <h4 className={STYLES.h4}>Observability Stack</h4>
+              <h3 className={STYLES.h3}>Observability</h3>
               <p className={STYLES.p + " lg:w-5/6"}>
                 Metrics, logs, and traces move through a unified telemetry pipeline—collected, 
                 correlated, and surfaced in real time for fast debugging and system insight.

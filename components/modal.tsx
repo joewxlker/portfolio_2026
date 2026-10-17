@@ -11,11 +11,9 @@ export const Modal = ({ isOpen, onClose, children, ariaLabel }: { isOpen: boolea
         };
 
         document.addEventListener("keydown", onKeyDown);
-        document.body.style.overflow = "hidden";
 
         return () => {
             document.removeEventListener("keydown", onKeyDown);
-            document.body.style.overflow = "";
         };
     }, [isOpen, onClose]);
 
