@@ -8,7 +8,7 @@ export const STYLES = {
 
   tagline: "xl:text-3xl md:text-3xl text-2xl font-sans text-stone-200 text-left",
   caption: "text-secondary-text font-light font-sans lg:text-auto text-sm text-center",
-  section: "flex flex-col items-center w-full gap-5 relative lg:pt-20 pt-15",
+  section: "flex flex-col items-center w-full gap-5 relative pt-2 lg:pb-20 pb-15",
   sectionBody: "w-[90%] md:max-w-[90%] max-w-125 items-stretch m-auto flex flex-col gap-10",
   subSection: "w-full flex md:flex-row flex-col gap-5 py-0",
 

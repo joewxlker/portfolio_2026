@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: var(--color-mist-50);
-  --modal: var(--color-mist-200);
-  --shadow: var(--color-mist-400);
-  --foreground: var(--color-mist-900);
-  --primary-text: var(--color-mist-900);
-  --secondary-text: var(--color-mist-700);
+  --background: var(--color-gray-50);
+  --modal: var(--color-gray-200);
+  --shadow: var(--color-gray-400);
+  --foreground: var(--color-gray-900);
+  --primary-text: var(--color-gray-900);
+  --secondary-text: var(--color-gray-700);
 
-  --trim: var(--color-mist-700);
+  --trim: var(--color-gray-700);
 
-  --pending: var(--color-mist-700);
-  --pending-shadow: var(--color-mist-700);
+  --pending: var(--color-gray-700);
+  --pending-shadow: var(--color-gray-700);
 
   --error: var(--color-red-600);
   --error-shadow: var(--color-red-600);
@@ -22,24 +22,24 @@
   --primary: var(--color-lime-600);
   --primary-shadow: var(--color-lime-600);
 
-  --primary-dark: var(--color-lime-800);
-  --primary-dark-shadow: var(--color-lime-800);
+  --primary-dark: var(--color-sky-800);
+  --primary-dark-shadow: var(--color-sky-800);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--color-mist-900);
+    --background: var(--color-mauve-900);
 
-    --modal: var(--color-mist-800);
-    --shadow: var(--color-mist-950);
-    --foreground: var(--color-mist-300);
+    --modal: var(--color-mauve-800);
+    --shadow: var(--color-mauve-950);
+    --foreground: var(--color-mauve-300);
     --primary-text: var(--color-stone-200);
     --secondary-text: var(--color-stone-300);
 
-    --trim: var(--color-mist-800);
+    --trim: var(--color-mauve-800);
 
-    --pending: var(--color-mist-900);
-    --pending-shadow: var(--color-mist-900);
+    --pending: var(--color-mauve-900);
+    --pending-shadow: var(--color-mauve-900);
 
     --error: var(--color-red-400);
     --error-shadow: var(--color-red-400);
@@ -47,11 +47,11 @@
     --success: var(--color-pink-400);
     --success-shadow: var(--color-pink-400);
 
-    --primary: var(--color-lime-300);
-    --primary-shadow: var(--color-lime-300);
+    --primary: var(--color-orange-300);
+    --primary-shadow: var(--color-orange-300);
 
-    --primary-dark: var(--color-lime-400);
-    --primary-dark-shadow: var(--color-lime-400);
+    --primary-dark: var(--color-rose-400);
+    --primary-dark-shadow: var(--color-rose-400);
   }
 }
 

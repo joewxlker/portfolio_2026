@@ -216,15 +216,6 @@ export const Shapes = () => {
     }, []);
 
     useEffect(() => {
-        if (!containerRef.current) return;
-
-        const width = containerRef.current.clientWidth;
-        const height = containerRef.current.clientHeight;
-
-        setContainerSize({ width, height });
-    }, [containerWidth, containerHeight]);
-
-    useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -267,7 +258,7 @@ export const Shapes = () => {
         
         timeout.current = window.setTimeout(() => {
             for (let i = 0; i < INITIAL_SHAPE_COUNT; i++) {
-                window.setTimeout(() => {
+                spawnTimeouts.current.push(window.setTimeout(() => {
                     shapes.current.push(
                         newShape(
                             containerWidth,
@@ -275,7 +266,7 @@ export const Shapes = () => {
                             MAX_SHAPE_SIZE
                         )
                     );
-                }, SHAPE_SPAWN_INTERVAL_MS * i);
+                }, SHAPE_SPAWN_INTERVAL_MS * i));
             }
 
             timeout.current = null;
