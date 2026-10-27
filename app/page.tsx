@@ -8,6 +8,7 @@ import { ReactFlowProvider } from "@/context/react-flow";
 import { ImageChart } from "@/components/image-chart";
 import { ExternalLink } from "@/components/external-link";
 import { Shapes } from "@/components/shapes";
+import { HeroArt } from "@/components/hero-art";
 
 const SectionHeader = ({ title }: { title: string }) => (
   <div className="flex flex-row items-center justify-start w-full md:py-5 px-5 gap-5">
@@ -75,15 +76,7 @@ export default function Home() {
               </Link>
             </article>
             <div className="flex-1 relative">
-              <Image 
-                src="/flower-03.png"
-                priority
-                fetchPriority="high"
-                alt="" 
-                className="absolute bottom-0 left-[50%] -translate-x-[50%]"
-                quality={50}
-                height={4096 * 0.15} 
-                width={4096 * 0.15} />
+              <HeroArt />
             </div>
           </div>
           <HeroBackground />

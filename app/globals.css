@@ -83,6 +83,12 @@
   --color-primary-dark-shadow: var(--primary-dark-shadow);
 }
 
+.center {
+  translate: -50% -50%;
+  top: 50%;
+  left: 50%
+}
+
 body {
   background: var(--trim);
   color: var(--foreground);
